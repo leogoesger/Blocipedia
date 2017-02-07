@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :wikiis
+
   get 'users/new'
   get 'users/create'
 
