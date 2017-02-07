@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -42,4 +42,16 @@ Rails.application.configure do
 
   #allow TDD Testing
   config.web_console.development_only = false
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: “smtp.gmail.com”,
+    port: 587,
+    domain: ENV[“GMAIL_DOMAIN”],
+    authentication: “plain”,
+    enable_starttls_auto: true,
+    user_name: ENV[“GMAIL_USERNAME”],
+    password: ENV[“GMAIL_PASSWORD”]
+  }
 end
