@@ -21,11 +21,13 @@
     <% end %>
 
   <% if current_user.role == "premium"%>
-    <%= form_group_tag(wikii.errors[:private]) do %>
-      <%= f.label :private, class: 'checkbox' do %>
-        <%= f.check_box :private %> Private wikii
+    <div class="checkbox form-group">
+      <%= form_group_tag(wikii.errors[:private]) do %>
+        <%= f.label :private, class: 'checkbox' do %>
+          <%= f.check_box :private %> Private
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
 
     <%= f.submit "Save", class: 'btn btn-success' %>
