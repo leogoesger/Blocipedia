@@ -20,11 +20,13 @@
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wikii description" %>
   <% end %>
 
+<% if current_user.role == "premium"%>
   <%= form_group_tag(wikii.errors[:private]) do %>
     <%= f.label :private, class: 'checkbox' do %>
       <%= f.check_box :private %> Private wikii
     <% end %>
   <% end %>
+<% end %>
 
   <%= f.submit "Save", class: 'btn btn-success' %>
 

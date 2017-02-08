@@ -31,6 +31,7 @@
  gem 'figaro'
  gem 'bootstrap-sass'
  gem 'devise'
+ gem 'stripe'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
