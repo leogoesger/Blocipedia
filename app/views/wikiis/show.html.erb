@@ -7,6 +7,8 @@
 
 <div class="row">
    <div class="col-md-8">
-     <p class="lead"><%= @wikii.body %></p>
+     
+     <p class="lead"><%= Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(@wikii.body).html_safe %></p>
+
    </div>
 </div>

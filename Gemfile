@@ -32,6 +32,7 @@
  gem 'bootstrap-sass'
  gem 'devise'
  gem 'stripe'
+ gem 'redcarpet'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

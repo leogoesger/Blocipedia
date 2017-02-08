@@ -28,6 +28,22 @@ class WikiisController < ApplicationController
      end
   end
 
+  def update
+     @wikii = Wikii.new
+     @wikii.user_id = current_user.id
+     @wikii.title = params[:wikii][:title]
+     @wikii.body = params[:wikii][:body]
+     @wikii.private = params[:wikii][:private]
+
+     if @wikii.save
+       flash[:notice] = "Wiki was updated."
+       redirect_to @wikii, notice: "Wikii was updated successfully."
+     else
+       flash.now[:alert] = "There was an error updating the Wikii. Please try again."
+       render :new
+     end
+  end
+
   def edit
   	@wikii = Wikii.find(params[:id])
   end
