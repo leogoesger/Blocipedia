@@ -27,8 +27,8 @@ class ChargesController < ApplicationController
      currency: 'usd'
    )
  
-   User.find(current_user.id).role = 'premium'
-   flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again. #{current_user.role}"
+   User.find(current_user.id).premium!
+   flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again. #{User.find(current_user.id).role}"
    redirect_to wikiis_path # or wherever
  
    # Stripe will send back CardErrors, with friendly messages
@@ -37,5 +37,12 @@ class ChargesController < ApplicationController
    rescue Stripe::CardError => e
      flash[:alert] = e.message
      redirect_to new_charge_path
+ end
+
+ def downgrade
+  @user = User.find(current_user.id)
+  @user.standard!
+  flash[:alert] = "Your suscription has been cancelled!"
+  redirect_to wikiis_path
  end
 end

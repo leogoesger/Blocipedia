@@ -1,4 +1,5 @@
 class WikiisController < ApplicationController
+  before_action :require_sign_in, except: [:index, :show, :destroy]
   def index
   	@wikiis = Wikii.all
   end

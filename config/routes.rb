@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'charges/new'
-
-  get 'charges/create'
-
   resources :wikiis
 
   get 'users/new'
@@ -13,6 +9,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'welcome/about'
 
-  resources :charges, only: [:new, :create]
+  resources :charges
+  post 'charges/downgrade' => 'charges#downgrade', :as => :downgrade
   
 end
