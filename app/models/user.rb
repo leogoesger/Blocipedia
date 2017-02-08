@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   before_save {self.role ||= :standard}
   enum role: [:standard, :premium, :admin]
-
+  has_many :wikiis
 end

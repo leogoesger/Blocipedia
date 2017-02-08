@@ -23,26 +23,30 @@ class ChargesController < ApplicationController
    charge = Stripe::Charge.create(
      customer: customer.id, # Note -- this is NOT the user_id in your app
      amount: @value.default,
-     description: "BigMoney Membership - #{current_user.email}",
+     description: "Wiki Membership - #{current_user.name}",
      currency: 'usd'
    )
  
    User.find(current_user.id).premium!
-   flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again. #{User.find(current_user.id).role}"
-   redirect_to wikiis_path # or wherever
- 
-   # Stripe will send back CardErrors, with friendly messages
-   # when something goes wrong.
-   # This `rescue block` catches and displays those errors.
+   flash[:notice] = "Thanks for the money, #{current_user.email}!}"
+   redirect_to wikiis_path 
+
+
    rescue Stripe::CardError => e
      flash[:alert] = e.message
      redirect_to new_charge_path
  end
 
  def downgrade
-  @user = User.find(current_user.id)
-  @user.standard!
-  flash[:alert] = "Your suscription has been cancelled!"
-  redirect_to wikiis_path
+    @user = User.find(current_user.id)
+    @user.standard!
+    @wikis = @user.wikiis
+    @wikis.each do |wiki|
+      wiki.private = false
+      wiki.save!
+    end
+
+    flash[:alert] = "Your suscription has been cancelled!"
+    redirect_to wikiis_path
  end
 end

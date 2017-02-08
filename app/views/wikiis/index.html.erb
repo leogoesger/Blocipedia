@@ -1,14 +1,29 @@
 <h1>All Wikis</h1>
 
 <% @wikiis.each do |wiki| %>
-	<div class="media">
-     <div class="media-body">
-       <h4 class="media-heading">
-         <%= link_to wiki.title, wikii_path(wiki) %>
-       </h4>
-     </div>
-   </div>
+	<% if current_user%>
+		<% if !wiki.private || wiki.user_id == current_user.id%>
+			<div class="media">
+		     	<div class="media-body">
+		   			<h4 class="media-heading">
+		     			<%= link_to wiki.title, wikii_path(wiki) %>
+		   			</h4>
+		     	</div>
+	   		</div>
+   		<% end %>
+	<% else %>
+		<% unless wiki.private == true%>
+			<div class="media">
+		     	<div class="media-body">
+		   			<h4 class="media-heading">
+		     			<%= link_to wiki.title, wikii_path(wiki) %>
+		   			</h4>
+		     	</div>
+	   		</div>
+   		<% end %>
+	<% end %>
 <% end %>
+
 <br>
 <div class="col-md-4">
     <%= link_to "New Wiki", new_wikii_path, class: 'btn btn-success' %>

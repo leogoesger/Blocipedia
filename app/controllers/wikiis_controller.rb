@@ -33,7 +33,7 @@ class WikiisController < ApplicationController
   end
 
   def destroy
-	@wikii = Wikii.find(params[:id])
+	  @wikii = Wikii.find(params[:id])
 
     if @wikii.destroy
 		flash[:notice] = "\"#{@wikii.title}\" was deleted successfully."

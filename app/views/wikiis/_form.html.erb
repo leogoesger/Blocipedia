@@ -24,7 +24,7 @@
     <div class="checkbox form-group">
       <%= form_group_tag(wikii.errors[:private]) do %>
         <%= f.label :private, class: 'checkbox' do %>
-          <%= f.check_box :private %> Private
+          <%= f.check_box :private, {:checked=>false} %> Private
         <% end %>
       <% end %>
     </div>
