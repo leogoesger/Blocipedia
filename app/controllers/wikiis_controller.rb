@@ -1,8 +1,9 @@
 class WikiisController < ApplicationController
   before_action :require_sign_in, except: [:index, :show, :destroy]
   def index
-  	@wikiis = Wikii.all
-  end
+     #@wikiis = policy_scope(Wikii)
+     @wikiis = Wikii.all
+   end
 
   def show
   	@wikii = Wikii.find(params[:id])
