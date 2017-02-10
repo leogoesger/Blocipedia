@@ -47,6 +47,7 @@ class WikiisController < ApplicationController
 
   def edit
   	@wikii = Wikii.find(params[:id])
+    @collaborator = Collaborator.new
   end
 
   def destroy

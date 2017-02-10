@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  post 'collaborators/create'
+
+  get 'collaborators/destroy'
+
   resources :wikiis
 
   get 'users/new'
