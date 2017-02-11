@@ -34,7 +34,7 @@
   <% end %>
 
 <% if current_user.role == "premium"%>
-  <%= form_for @collaborator, :url => collaborators_create_path(pp: :wikii_id), :html => {:method => :post} do |k| %>
+  <%= form_for @collaborator, :url => collaborators_create_path(:id => wikii.id), :html => {:method => :post} do |k| %>
       <%= form_group_tag(@collaborator.errors[:UserName]) do %>
         <%= k.label "Add Collaborator's Name" %>
         <%= k.text_area :UserName, rows: 1, class: 'form-control', placeholder: "Enter collaborator name" %>

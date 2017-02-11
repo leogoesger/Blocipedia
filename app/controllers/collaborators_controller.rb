@@ -2,18 +2,20 @@ class CollaboratorsController < ApplicationController
   before_action :require_sign_in
 
   def create
-  	@user_name = params[:collaborator][:UserName]
-  	@user_id = User.where("name = ? ", @user_name)
-  	@wikii = params[:pp]
-  	collaborator = Collaborator.new
+    @user_name = params[:collaborator][:UserName]
+    @user = User.find_by_name(@user_name)
+    @wikii = Wikii.find(params[:id])
+    @collaborator = Collaborator.new
+    @collaborator.user_id = @user.id
+    @collaborator.wikii_id = @wikii.id
   	
-  	if collaborator.save
-       flash[:notice] = "Collaborator Saved!"
-     else
+  	if @collaborator.save
+       flash[:notice] = "Collaborator Saved! #{@user.name} #{@wikii.title}"
+    else
        flash[:alert] = "Adding Collaborator Failed!"
-     end
+    end
  
-     redirect_to root
+     redirect_to '/wikiis'
   end
 
   def destroy

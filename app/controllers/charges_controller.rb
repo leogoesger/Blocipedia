@@ -28,7 +28,7 @@ class ChargesController < ApplicationController
    )
  
    User.find(current_user.id).premium!
-   flash[:notice] = "Thanks for the money, #{current_user.email}!}"
+   flash[:notice] = "Thanks for the money, #{current_user.name}!"
    redirect_to wikiis_path 
 
 

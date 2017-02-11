@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-before_filter :configure_permitted_parameters
+before_filter :configure_permitted_parameters, :edit
 
   protected
 
@@ -19,9 +19,14 @@ before_filter :configure_permitted_parameters
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+     @value = Amount.new
+     @stripe_btn_data = {
+        key: "#{ Rails.configuration.stripe[:publishable_key] }",
+        description: "BigMoney Membership - #{current_user.name}",
+        amount: @value.default
+     }
+  end
 
   # PUT /resource
   # def update
