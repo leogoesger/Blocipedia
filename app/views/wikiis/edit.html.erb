@@ -1,14 +1,24 @@
 <h1>Edit Wiki</h1>
 <div class="row">
- <div class="col-md-4">
-   <p>Guidelines for topics:</p>
-   <ul>
-     <li>Make sure the Wiki is appropriate.</li>
-     <li>Never insult dogs.</li>
-     <li>Smile when you type.</li>
-   </ul>
- </div>
- <div class="col-md-8">
-   <%= render partial: 'form', locals: { wikii: @wikii } %>
- </div>
+	 <div class="col-md-4">
+		   <p>Guidelines for topics:</p>
+		   <ul>
+		     <li>Make sure the Wiki is appropriate.</li>
+		     <li>Never insult dogs.</li>
+		     <li>Smile when you type.</li>
+		   </ul>
+	 </div>
+	 <div class="col-md-8">
+	   <%= render partial: 'form', locals: { wikii: @wikii } %>
+
+	   <% if current_user.role == "premium"%>
+		  <%= form_for @collaborator, :url => collaborators_create_path(:id => @wikii.id), :html => {:method => :post} do |k| %>
+		      <%= form_group_tag(@collaborator.errors[:UserName]) do %>
+		        <%= k.label "Add Collaborator's Name" %>
+		        <%= k.text_area :UserName, rows: 1, class: 'form-control', placeholder: "Enter collaborator name" %>
+		      <% end %>
+		      <%= k.submit "Save", class: 'btn btn-success' %>
+		  <% end %>
+		<% end %>
+	 </div>
 </div>

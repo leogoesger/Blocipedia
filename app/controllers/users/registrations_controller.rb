@@ -23,7 +23,7 @@ before_filter :configure_permitted_parameters, :edit
      @value = Amount.new
      @stripe_btn_data = {
         key: "#{ Rails.configuration.stripe[:publishable_key] }",
-        description: "BigMoney Membership - #{current_user.name}",
+        description: "BigMoney Membership",
         amount: @value.default
      }
   end

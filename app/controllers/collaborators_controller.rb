@@ -10,7 +10,7 @@ class CollaboratorsController < ApplicationController
     @collaborator.wikii_id = @wikii.id
   	
   	if @collaborator.save
-       flash[:notice] = "Collaborator Saved! #{@user.name} #{@wikii.title}"
+       flash[:notice] = "Collaborator Saved!"
     else
        flash[:alert] = "Adding Collaborator Failed!"
     end

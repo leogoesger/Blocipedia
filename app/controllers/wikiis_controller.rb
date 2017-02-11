@@ -1,7 +1,6 @@
 class WikiisController < ApplicationController
   before_action :require_sign_in, except: [:index, :show, :destroy]
   def index
-     #@wikiis = policy_scope(Wikii)
      @wikiis = Wikii.all
    end
 
@@ -30,7 +29,7 @@ class WikiisController < ApplicationController
   end
 
   def update
-     @wikii = Wikii.new
+     @wikii = Wikii.find(params[:id])
      @wikii.user_id = current_user.id
      @wikii.title = params[:wikii][:title]
      @wikii.body = params[:wikii][:body]
