@@ -10,12 +10,12 @@ class CollaboratorsController < ApplicationController
     @collaborator.wikii_id = @wikii.id
   	
   	if @collaborator.save
-       flash[:notice] = "Collaborator Saved!"
+       flash[:notice] = "Collaborator Saved! #{@user.email}, #{@wikii.title}"
     else
        flash[:alert] = "Adding Collaborator Failed!"
     end
  
-     redirect_to '/wikiis'
+     redirect_to wikii_url(@wikii)
   end
 
   def destroy
