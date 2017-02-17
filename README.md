@@ -15,6 +15,6 @@ Wikis are a great way to collaborate on community-sourced content. Whether the w
 
 
 ##Features
-#Home Page
+###Home Page
 
-![screenshot](./screenshot/front_page.png)
+![screenshot](./screenshot/front page.png)
