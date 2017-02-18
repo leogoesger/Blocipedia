@@ -29,7 +29,7 @@ Wikis are a great way to collaborate on community-sourced content. Whether the w
 
 ###Wikis
 
-![screenshot](/screenshot/wiki.PNG)
+![screenshot](/screenshot/wikiss.PNG)
 
 ###Suscription
 
