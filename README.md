@@ -20,26 +20,31 @@ Wikis are a great way to collaborate on community-sourced content. Whether the w
 ![screenshot](/screenshot/front page.PNG)
 
 ###Sign up
+Blocipedia uses Devise gem for authentication. It sends users an email for confirmation.
 
 ![screenshot](/screenshot/signup.PNG)
 
+
 ###Sign in
+Using Devise gem, user can sign in/out of the Blocipedia.
 
 ![screenshot](/screenshot/signin.PNG)
 
 ###Wikis
-
 ![screenshot](/screenshot/wikiss.PNG)
 
 ###Suscription
+Blocipedia uses Pundit gem for authorization. To upgrade a user's role, Blocipedia uses Stripe to charge users before switching their account role from standard to premium. The price for upgrading to premium is 15 dollars.
 
 ![screenshot](/screenshot/suscription page.PNG)
 
 
 ###New Wiki
+Wikis can be written using Markdown syntax provided by Redcarpet gem.
 
 ![screenshot](/screenshot/new_wiki.PNG)
 
 ###Collaborators
+Blocipedia uses `Has Many Through` relationships for User, Collaborator and Wikis. Private wikis are only visible to admins, the wiki creator, or wiki collaborators. 
 
 ![screenshot](/screenshot/collaborator.PNG)
