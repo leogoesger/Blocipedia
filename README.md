@@ -17,4 +17,29 @@ Wikis are a great way to collaborate on community-sourced content. Whether the w
 ##Features
 ###Home Page
 
+![screenshot](/screenshot/front page.PNG)
+
+###Sign up
+
+![screenshot](/screenshot/signup.PNG)
+
+###Sign in
+
+![screenshot](/screenshot/signin.PNG)
+
+###Wikis
+
+![screenshot](/screenshot/wiki.PNG)
+
+###Suscription
+
+![screenshot](/screenshot/suscription page.PNG)
+
+
+###New Wiki
+
 ![screenshot](/screenshot/new_wiki.PNG)
+
+###Collaborators
+
+![screenshot](/screenshot/collaborator.PNG)
