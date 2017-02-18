@@ -31,6 +31,7 @@ Using Devise gem, user can sign in/out of the Blocipedia.
 ![screenshot](/screenshot/signin.PNG)
 
 ###Wikis
+Any users are allowed to create Wikis in Blocipedia, but they cannot edit other users' Wikis unless they upgrade to Premium.
 ![screenshot](/screenshot/wikiss.PNG)
 
 ###Suscription
